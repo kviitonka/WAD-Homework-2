@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- mobile usage -->
+    <title>PostIt - Home</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+
+    <!-- header: navigation links + account avatar -->
+    <header>
+        <nav> <!--navigation links-->
+        <a href="index.html">Home</a>
+        <a href="addPost.html">Add Post</a>
+        </nav>
+        <!-- avatar links to the login page -->
+        <!-- aria-label for accessibility since the link contains only an image -->
+        <a href="login.html" class="avatar" aria-label="Account">
+            <img src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32">
+        </a>
+    </header>
+
+    <!-- main: post feed -->
+    <main>
+        <!-- each post is an <article> element with the same structure:
+                1. post header - avatar, username, date
+                2. post body - optional image, text content
+                3. post footer - like button with like count
+            to add a new post, copy the <article> element and change the content -->
+        <section class="feed" aria-label="Posts">
+            <article class="post">
+                <div class="post-header">
+                    <span class="avatar">
+                        <img src="images/daweid-icon-7797704_1920.png" alt="Ana">
+                    </span>
+                    <strong>Ana</strong>
+                    <time datetime="2026-10-01">October 1, 2026</time>
+                </div>
+
+                <div class="post-body">
+                    <img src="images/tartu.webp" alt="Town Hall Square in Tartu" />
+                    <p>Beautiful day in Tartu! #Tartu #Estonia</p>
+                </div>
+
+                <div class="post-footer">
+                    <!-- data-likes = starting number of likes, read by the script below -->
+                    <button class="like-btn" type="button" data-likes="4">👍 4</button>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="post-header">
+                    <span class="avatar">
+                        <span class="avatar">
+                        <img src="images/daweid-icon-7797704_1920.png" alt="Mark">
+                    </span>
+                    </span>
+                    <strong>Mark</strong>
+                    <time datetime="2026-10-02">October 2, 2026</time>
+                </div>
+
+                <div class="post-body">
+                    <p>Does anyone know which room the lab is in today?</p>
+                </div>
+
+                <div class="post-footer">
+                    <button class="like-btn" type="button" data-likes="8">👍 8</button>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="post-header">
+                    <span class="avatar">
+                        <img src="images/daweid-icon-7797704_1920.png" alt="Emma">
+                    </span>
+                    <strong>Emma</strong>
+                    <time datetime="2026-10-03">Oct 3, 2026</time>
+                </div>
+                <div class="post-body">
+                    <img src="images/library.webp" alt="University library" />
+                    <p>Finally found a quiet corner in the library for doing assignments.</p>
+                </div>
+                <div class="post-footer">
+                    <!-- class "liked" makes the button blue from the start -->
+                    <button class="like-btn liked" type="button" data-likes="12">👍 12</button>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="post-header">
+                    <span class="avatar">
+                        <img src="images/daweid-icon-7797704_1920.png" alt="John">
+                    </span>
+                    <strong>John</strong>
+                    <time datetime="2026-10-04">Oct 4, 2026</time>
+                </div>
+                <div class="post-body">
+                    <img src="images/coffee.jpg" alt="Coffee shop" />
+                    <p>Coffee break between lectures, campus is looking great this week!</p>
+                </div>
+                <div class="post-footer">
+                    <button class="like-btn" type="button" data-likes="15">👍 15</button>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="post-header">
+                    <span class="avatar">
+                        <img src="images/daweid-icon-7797704_1920.png" alt="Lisa">
+                    </span>
+                    <strong>Lisa</strong>
+                    <time datetime="2026-10-05">Oct 5, 2026</time>
+                </div>
+                <div class="post-body">
+                    <p>Does anyone want to form a study group for the upcoming exam?</p>
+                </div>
+                <div class="post-footer">
+                    <button class="like-btn" type="button" data-likes="3">👍 3</button>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2026 PostIt - WAD homework</p>
+    </footer>
+
+    <!-- javascript: like button functionality 
+         clicking a button toggles like/unlike and updates the number
+         nothing is saved, the counts reset when the page is reloaded -->
+    <script>
+        // Loop over every like button on the page and give each its own state
+        document.querySelectorAll('.like-btn').forEach(btn => {
+            let liked = false; //has the user liked this post yet?
+            let count = parseInt(btn.dataset.likes, 10) || 0; //start from data-likes (0 if missing)
+
+            btn.addEventListener('click', () => {
+                liked = !liked; //flip between liked / not liked
+                count += liked ? 1 : -1; // increments on like, decrements on unlike
+                btn.classList.toggle('liked', liked); // add "liked" class if liked, remove otherwise
+                btn.textContent =  `👍 ${count}`; // update the displayed number
+            });
+        });
+    </script>
+
+</body>
+</html>

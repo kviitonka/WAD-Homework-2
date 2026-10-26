@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Post</title>
+    <link rel="stylesheet" href="addPost.css">
+  </head>
+  <body>
+    <header class="post_header">
+        <nav>
+            <a href="index.html" class="post_redirect">Home</a> <!-- navigation to home-->
+        </nav>
+        <img class="post_image" src="images/daweid-icon-7797704_1920.png" width="45" height="45" alt="My picture"> <!-- user icon image -->
+    </header>
+    <main>
+        <article class="post_section">
+            <form action= "index.html" class="post_form" method="post"> <!-- form for adding post -->
+                <label for="pbody">Post body </label>
+                <textarea id = "pbody" class="post_input"></textarea> <!-- area for post text -->
+        
+                <label for="file_upload"> Select file </label>
+                <input type="file" id="file_upload" class="post_file"> <!-- enabling file uploading -->
+                <input type="submit" class="post_submit" value="Create post"> <!-- create post button -->
+            </form>
+        </article>
+    </main>
+</body>
+</html>

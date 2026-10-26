@@ -1,0 +1,93 @@
+/* addPost.html style*/
+
+/*style for the header*/
+.post_header {
+    padding: 15px 20px;
+    background-color: #a2eae8;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 0;
+    border-radius: 15px;
+    color: #34495e;
+    font-size: 1.7em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+/*style for "Home" in header*/
+.post_header nav a{
+    text-decoration: none;
+    color: #08465a;
+    padding: 5px 15px;
+    border-radius: 8px;
+}
+/*style for icon in header*/
+.post_image {
+    border-radius: 10px;
+    display: block;
+      }
+
+/* general style for post section*/
+.post_section {
+    margin: 100px auto;
+    max-width: 600px;
+    padding: 70px;
+    background-color: #a2eae8;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    color: #34495e;
+    font-size: 1.7em;
+}
+/*form display*/
+article > form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+/*style for the text area*/
+label + textarea{
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    margin-top: 15px;
+    margin-bottom: 25px;
+    resize: vertical; /*only vertical resizing*/
+}
+
+/*style for "Create post" and "Choose file" buttons*/
+label ~ input[type="submit"], .post_file::file-selector-button{
+    padding: 8px 8px;
+    font-size: 0.9em;
+    background-color: rgb(96, 176, 207);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer; /*cursor changes on pointer hand*/
+    margin-top: 10px;
+}
+
+/*style for hovering over "Create post" and "Choose file" buttons*/
+label ~ input[type="submit"]:hover, .post_file::file-selector-button:hover{
+    background-color: #82ddae;
+}
+/*style for hovering over "Home" in header*/
+.post_header nav a:hover{
+    background-color: #82ddae;
+}
+
+/*display for max-width: 799px*/
+@media (max-width: 799px) {
+    .post_header
+    {
+        flex-direction: column;
+        gap: 15px
+    }
+    .post_section{
+        padding: 20px;
+    }
+}
