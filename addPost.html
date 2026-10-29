@@ -11,7 +11,17 @@
         <nav>
             <a href="index.html" class="post_redirect">Home</a> <!-- navigation to home-->
         </nav>
-        <img class="post_image" src="images/daweid-icon-7797704_1920.png" width="45" height="45" alt="My picture"> <!-- user icon image -->
+        <div class="user-menu">
+            <div class="avatar-btn" id="avatar-btn" style="cursor: pointer;" aria-label="Account">
+                <img class="avatar-img" src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32">
+            </div>
+            <div class="dropdown-content" id="menu">
+                <p>John Doe</p>
+                <p>john.doe@ut.ee</p>
+                <hr>
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
     </header>
     <main>
         <article class="post_section">
@@ -25,5 +35,6 @@
             </form>
         </article>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

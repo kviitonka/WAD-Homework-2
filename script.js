@@ -90,3 +90,13 @@ fetch(POSTS_URL)
         console.error("Could not load posts:", error);
         feed.textContent = "Sorry, the posts could not be loaded";
     });
+
+    const avatarBtn = document.getElementById("avatar-btn");
+    const dropdownMenu = document.getElementById("menu");
+
+    if (avatarBtn && dropdownMenu) {
+        avatarBtn.addEventListener("click", function(event){
+            // event.preventDefault()
+            dropdownMenu.classList.toggle("show");
+        });
+    }

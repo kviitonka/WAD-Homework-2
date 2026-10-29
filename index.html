@@ -17,9 +17,17 @@
         </nav>
         <!-- avatar links to the login page -->
         <!-- aria-label for accessibility since the link contains only an image -->
-        <a href="login.html" class="avatar" aria-label="Account">
-            <img src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32">
-        </a>
+        <div class="user-menu">
+            <div class="avatar-btn" id="avatar-btn" style="cursor: pointer;" aria-label="Account">
+                <img src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32">
+            </div>
+            <div class="dropdown-content" id="menu">
+                <p>John Doe</p>
+                <p>john.doe@ut.ee</p>
+                <hr>
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
     </header>
 
     <!-- main: post feed -->
