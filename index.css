@@ -1,23 +1,33 @@
 :root {
-    --ink: #1b1f27;             /* main text color */
-    --paper: #f6f4ef;           /* page background color */
-    --card: #ffffff;            /* background of post cards */
-    --line: #dcd8cf;            /* borders and header background */
-    --accent: #2c4a6e;          /* accent color (hover, liked state) */
-    --accent-hover: #203854;    /* darker accent color */
-    --muted: #7a7568;           /* grey text: dates, footer*/
+    --ink: #1b1f27;
+    /* main text color */
+    --paper: #f6f4ef;
+    /* page background color */
+    --card: #ffffff;
+    /* background of post cards */
+    --line: #dcd8cf;
+    /* borders and header background */
+    --accent: #2c4a6e;
+    /* accent color (hover, liked state) */
+    --accent-hover: #203854;
+    /* darker accent color */
+    --muted: #7a7568;
+    /* grey text: dates, footer*/
 }
 
 /*make width/height include padding and border, so sizes are more predictable */
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
 
 /* base page styles */
 body {
     margin: 0;
-    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     background-color: var(--paper);
     color: var(--ink);
-    line-height: 1.5; /* more readable spacing between lines */
+    line-height: 1.5;
+    /* more readable spacing between lines */
 }
 
 /* header and navigation styles */
@@ -25,8 +35,10 @@ body {
 /* top bar: nav links on the left, avatar on the right */
 header {
     display: flex;
-    align-items: center;            /* vertically center the items */
-    justify-content: space-between; /* push nav left and avatar right */
+    align-items: center;
+    /* vertically center the items */
+    justify-content: space-between;
+    /* push nav left and avatar right */
     background: var(--line);
     padding: 0.75rem 1rem;
 }
@@ -34,16 +46,19 @@ header {
 /* row of link (home, add post) */
 nav {
     display: flex;
-    gap: 0.25rem; /* small space between links */
+    gap: 0.25rem;
+    /* small space between links */
 }
 
 nav a {
     padding: 0.4rem 0.9rem;
     border-radius: 4px;
     color: var(--ink);
-    text-decoration: none;                   /* no underline */
+    text-decoration: none;
+    /* no underline */
     font-weight: 600;
-    transition: background-color 0.25s ease; /* smooth hover effect */
+    transition: background-color 0.25s ease;
+    /* smooth hover effect */
 }
 
 /* hover effect: dark blue background with white text */
@@ -57,10 +72,12 @@ nav a:hover {
 .avatar-btn {
     width: 38px;
     height: 38px;
-    border-radius: 50%; /* makes the square into a circle */
+    border-radius: 50%;
+    /* makes the square into a circle */
     background: #ffffff;
     border: 2px solid #fff;
-    overflow: hidden;   /* crop the image to the circle */
+    overflow: hidden;
+    /* crop the image to the circle */
     display: block;
 }
 
@@ -68,7 +85,8 @@ nav a:hover {
 .avatar-btn img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* crop instead of distorting */
+    object-fit: cover;
+    /* crop instead of distorting */
 }
 
 /* main content area */
@@ -83,8 +101,10 @@ main {
 /* vertical list of posts, max 640px wide */
 .feed {
     display: flex;
-    flex-direction: column; /* stack posts top to bottom */
-    gap: 1rem;              /* space between posts */
+    flex-direction: column;
+    /* stack posts top to bottom */
+    gap: 1rem;
+    /* space between posts */
     width: 100%;
     max-width: 640px;
 }
@@ -94,12 +114,14 @@ main {
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 6px;
-    overflow: hidden; /* keeps the image inside the rounded corners */
+    overflow: hidden;
+    /* keeps the image inside the rounded corners */
+
 }
 
 /* top row of a post: avatar, username, date
     ">" means only a .post-header that is a direct child of .post */
-.post > .post-header {
+.post>.post-header {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -123,13 +145,14 @@ main {
 }
 
 /* "+" = the .post-body that comes directly after the .post-header */
-.post-header + .post-body {
+.post-header+.post-body {
     padding: 0 1rem 0.75rem;
 }
 
 /* post image: full width, always square, cropped to fit */
 .post-body img {
-    display: block; /* removes the small gap under inline images */
+    display: block;
+    /* removes the small gap under inline images */
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
@@ -142,14 +165,14 @@ main {
 
 /* "~" = any .post-footer that comes after a .post-body (same parent)
     adds a thin line above the like button */
-.post-body ~ .post-footer {
+.post-body~.post-footer {
     padding: 0.5rem 1rem 0.85rem;
     border-top: 1px solid var(--line);
 }
 
 /* like button */
 
-/* reset the default button so it looks like plain text with an emoji  */ 
+/* reset the default button so it looks like plain text with an emoji  */
 .like-btn {
     background: none;
     border: none;
@@ -160,8 +183,10 @@ main {
 }
 
 .like-btn:hover {
-    background: var(--paper); /* light highlight on hover */
+    /* background: var(--paper); /* light highlight on hover */
 }
+
+*/
 
 /* the "liked" class is added/removed by the javascript in index.html */
 .like-btn.liked {
@@ -196,4 +221,40 @@ main {
     .feed {
         gap: 0.75rem;
     }
+}
+
+/* dropdown menu box */
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    background: var(--line);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 30px;
+    font-weight: 600;
+    display: none;
+    position: absolute;
+    right: 0;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* logout button */
+div a {
+    text-decoration: none;
+    color: black;
+    padding: 7px;
+    font-weight: 600;
+}
+
+div a:hover {
+    background-color: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    padding: 7px;
+    font-weight: 600;
+    transition: background-color 0.25s ease;
+    /* smooth hover effect */
 }

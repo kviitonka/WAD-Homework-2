@@ -1,50 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- mobile usage -->
-    <title>PostIt - Home</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- mobile usage -->
+  <title>PostIt - Home</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
 
-    <!-- header: navigation links + account avatar -->
-    <header>
-        <nav> <!--navigation links-->
-        <a href="index.html">Home</a>
-        <a href="addPost.html">Add Post</a>
-        </nav>
-        <!-- avatar links to the login page -->
-        <!-- aria-label for accessibility since the link contains only an image -->
-        <div class="user-menu">
-            <div class="avatar-btn" id="avatar-btn" style="cursor: pointer;" aria-label="Account">
-                <img src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32">
-            </div>
-            <div class="dropdown-content" id="menu">
-                <p>John Doe</p>
-                <p>john.doe@ut.ee</p>
-                <hr>
-                <a href="login.html">Logout</a>
-            </div>
-        </div>
-    </header>
+<body>
+  <!-- header: navigation links + account avatar -->
+  <header>
+    <nav>
+      <!--navigation links-->
+      <a href="index.html">Home</a>
+      <a href="addPost.html">Add Post</a>
+    </nav>
+    <!-- avatar links to the login page -->
+    <!-- aria-label for accessibility since the link contains only an image -->
+    <div class="user-menu">
+      <div class="avatar-btn" id="avatar-btn" style="cursor: pointer" aria-label="Account">
+        <img src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32" />
+      </div>
+    </div>
+  </header>
 
-    <!-- main: post feed -->
-    <main>
-        <!-- the posts are no longer added by hand:
+  <!-- dropdown menu -->
+  <div class="dropdown-menu" id="menu">
+    <p>John Doe</p>
+    <p>john.doe@ut.ee</p>
+    <hr />
+    <a href="login.html">Logout</a>
+  </div>
+
+  <!-- main: post feed -->
+  <main>
+    <!-- the posts are no longer added by hand:
                 script.js fetches posts.js and creates one <arcitle class="post">
                 for each post, then adds it into this empty section -->
-        <section class="feed" id="feed"aria-label="Posts"></section>
-    </main>
+    <section class="feed" id="feed" aria-label="Posts"></section>
+  </main>
 
-    <!-- footer -->
-    <footer class="footer">
-        <p>&copy; 2026 PostIt - WAD homework</p>
-    </footer>
+  <!-- footer -->
+  <footer class="footer">
+    <p>&copy; 2026 PostIt - WAD homework</p>
+  </footer>
 
-    <!-- all the logic (fetch, creating posts, like buttons) lives in script.js -->
-    <script src="script.js"></script>
-
+  <!-- all the logic (fetch, creating posts, like buttons) lives in script.js -->
+  <script src="script.js" defer></script>
 </body>
+
 </html>

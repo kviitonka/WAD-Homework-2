@@ -1,40 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post</title>
-    <link rel="stylesheet" href="addPost.css">
-  </head>
-  <body>
-    <header class="post_header">
-        <nav>
-            <a href="index.html" class="post_redirect">Home</a> <!-- navigation to home-->
-        </nav>
-        <div class="user-menu">
-            <div class="avatar-btn" id="avatar-btn" style="cursor: pointer;" aria-label="Account">
-                <img class="avatar-img" src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32">
-            </div>
-            <div class="dropdown-content" id="menu">
-                <p>John Doe</p>
-                <p>john.doe@ut.ee</p>
-                <hr>
-                <a href="login.html">Logout</a>
-            </div>
-        </div>
-    </header>
-    <main>
-        <article class="post_section">
-            <form action= "index.html" class="post_form" method="post"> <!-- form for adding post -->
-                <label for="pbody">Post body </label>
-                <textarea id = "pbody" class="post_input"></textarea> <!-- area for post text -->
-        
-                <label for="file_upload"> Select file </label>
-                <input type="file" id="file_upload" class="post_file"> <!-- enabling file uploading -->
-                <input type="submit" class="post_submit" value="Create post"> <!-- create post button -->
-            </form>
-        </article>
-    </main>
-    <script src="script.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Post</title>
+  <link rel="stylesheet" href="addPost.css" />
+</head>
+
+<body>
+  <header class="post_header">
+    <nav>
+      <a href="index.html" class="post_redirect">Home</a>
+      <!-- navigation to home-->
+    </nav>
+    <div class="user-menu">
+      <div class="avatar-btn" id="avatar-btn" style="cursor: pointer" aria-label="Account">
+        <img class="avatar-img" src="images/daweid-icon-7797704_1920.png" alt="User Avatar" width="32" height="32" />
+      </div>
+    </div>
+  </header>
+  <!-- dropdown menu -->
+  <div class="dropdown-menu" id="menu">
+    <p>John Doe</p>
+    <p>john.doe@ut.ee</p>
+    <hr />
+    <a href="login.html">Logout</a>
+  </div>
+  <main>
+    <article class="post_section">
+      <form action="index.html" class="post_form" method="post">
+        <!-- form for adding post -->
+        <label for="pbody">Post body </label>
+        <textarea id="pbody" class="post_input"></textarea>
+        <!-- area for post text -->
+
+        <label for="file_upload"> Select file </label>
+        <input type="file" id="file_upload" class="post_file" />
+        <!-- enabling file uploading -->
+        <input type="submit" class="post_submit" value="Create post" />
+        <!-- create post button -->
+      </form>
+    </article>
+  </main>
+  <script src="script.js" defer></script>
 </body>
+
 </html>

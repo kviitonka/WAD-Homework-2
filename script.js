@@ -8,7 +8,7 @@ function formatDate(isoString) {
     return date.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
-        year: "numeric"
+        year: "numeric",
     });
 }
 
@@ -19,12 +19,10 @@ function createPost(post) {
     const header = document.createElement("div");
     header.className = "post-header";
 
-    const avatar = document.createElement("span");
-    avatar.className = "avatar";
     const avatarImg = document.createElement("img");
     avatarImg.src = post.userPicture;
     avatarImg.alt = post.userName;
-    avatar.appendChild(avatarImg);
+    avatarImg.className = "avatar";
 
     const name = document.createElement("strong");
     name.textContent = post.userName;
@@ -33,13 +31,13 @@ function createPost(post) {
     time.dateTime = post.creationTime;
     time.textContent = formatDate(post.creationTime);
 
-    header.append(avatar, name, time);
+    header.append(avatarImg, name, time);
 
     //post body - optional photo + text
     const body = document.createElement("div");
     body.className = "post-body";
 
-    if(post.postPhoto) {
+    if (post.postPhoto) {
         const photo = document.createElement("img");
         photo.src = post.postPhoto;
         photo.alt = "Photo from " + post.userName;
@@ -76,27 +74,29 @@ function createPost(post) {
 }
 
 fetch(POSTS_URL)
-    .then(response => {
+    .then((response) => {
         if (!response.ok) {
             throw new Error("HTTP error " + response.status);
         }
         return response.json();
     })
-    .then(posts => {
-        const sorted = [...posts].sort((a, b) => b.creationTime.localeCompare(a.creationTime));
-        sorted.forEach(post => feed.appendChild(createPost(post)));
+    .then((posts) => {
+        const sorted = [...posts].sort((a, b) =>
+            b.creationTime.localeCompare(a.creationTime),
+        );
+        sorted.forEach((post) => feed.appendChild(createPost(post)));
     })
-    .catch(error => {
+    .catch((error) => {
         console.error("Could not load posts:", error);
         feed.textContent = "Sorry, the posts could not be loaded";
     });
 
-    const avatarBtn = document.getElementById("avatar-btn");
-    const dropdownMenu = document.getElementById("menu");
+//dropdown menu toggling
+const avatarBtn = document.getElementById("avatar-btn");
+const dropdownMenu = document.getElementById("menu");
 
-    if (avatarBtn && dropdownMenu) {
-        avatarBtn.addEventListener("click", function(event){
-            // event.preventDefault()
-            dropdownMenu.classList.toggle("show");
-        });
-    }
+if (avatarBtn && dropdownMenu) {
+    avatarBtn.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("show");
+    });
+}
