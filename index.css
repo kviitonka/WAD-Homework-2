@@ -183,7 +183,7 @@ main {
 }
 
 .like-btn:hover {
-    /* background: var(--paper); /* light highlight on hover */
+    background: var(--paper); /* light highlight on hover */
 }
 
 */
